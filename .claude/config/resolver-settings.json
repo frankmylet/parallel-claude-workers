@@ -1,0 +1,145 @@
+{
+  "version": "1.0.0",
+  "description": "Intelligent Conflict Resolver Configuration",
+  
+  "thresholds": {
+    "confidence_threshold": 7.0,
+    "auto_resolve_threshold": 8.5,
+    "complexity_threshold": 6.0,
+    "quality_threshold": 7.5
+  },
+  
+  "strategies": {
+    "INDEX_EXPORTS": {
+      "default_strategy": "merge_typescript_exports",
+      "confidence_required": 9.0,
+      "auto_resolve": true
+    },
+    "TYPESCRIPT_COMPONENT": {
+      "default_strategy": "choose_best_implementation",
+      "confidence_required": 7.0,
+      "auto_resolve": false,
+      "fallback_strategy": "hybrid_merge"
+    },
+    "STORYBOOK_STORY": {
+      "default_strategy": "merge_storybook_stories",
+      "confidence_required": 7.5,
+      "auto_resolve": true
+    },
+    "STYLESHEET": {
+      "default_strategy": "merge_css_styles",
+      "confidence_required": 6.0,
+      "auto_resolve": false
+    },
+    "JSON_CONFIG": {
+      "default_strategy": "merge_json_config",
+      "confidence_required": 8.0,
+      "auto_resolve": false
+    },
+    "GENERIC_FILE": {
+      "default_strategy": "choose_best_implementation",
+      "confidence_required": 5.0,
+      "auto_resolve": false
+    }
+  },
+  
+  "analysis_weights": {
+    "complexity": 2.0,
+    "quality": 3.0,
+    "completeness": 2.5,
+    "documentation": 1.5,
+    "accessibility": 1.0
+  },
+  
+  "validation": {
+    "enabled": true,
+    "typescript_check": true,
+    "build_check": false,
+    "lint_check": true,
+    "storybook_check": true,
+    "import_consistency_check": true
+  },
+  
+  "backup": {
+    "enabled": true,
+    "retention_days": 7,
+    "compression": false
+  },
+  
+  "reporting": {
+    "enabled": true,
+    "detailed_analysis": true,
+    "include_scores": true,
+    "include_recommendations": true
+  },
+  
+  "learning": {
+    "enabled": true,
+    "track_user_decisions": true,
+    "adjust_weights": true,
+    "confidence_learning": true
+  },
+  
+  "project_specific": {
+    "design_system_patterns": {
+      "cva_variants_preferred": true,
+      "typescript_required": true,
+      "storybook_stories_required": true,
+      "accessibility_required": true
+    },
+    
+    "file_patterns": {
+      "component_extensions": [".tsx", ".ts"],
+      "story_extensions": [".stories.tsx", ".stories.ts"],
+      "style_extensions": [".css", ".scss", ".sass"],
+      "config_extensions": [".json", ".js", ".ts"]
+    },
+    
+    "naming_conventions": {
+      "components": "PascalCase",
+      "files": "camelCase",
+      "exports": "camelCase",
+      "types": "PascalCase"
+    }
+  },
+  
+  "integration": {
+    "parallel_manager": {
+      "auto_trigger": true,
+      "merge_mode": "interactive",
+      "post_merge_validation": true
+    },
+    
+    "claude_code": {
+      "slash_commands_enabled": true,
+      "interactive_prompts": true,
+      "progress_reporting": true
+    },
+    
+    "git": {
+      "auto_stage_resolved": true,
+      "commit_message_template": "resolve: merge conflicts in {files}",
+      "branch_cleanup": false
+    }
+  },
+  
+  "advanced": {
+    "ast_parsing": {
+      "enabled": false,
+      "typescript_parser": "typescript",
+      "javascript_parser": "babel"
+    },
+    
+    "semantic_analysis": {
+      "enabled": false,
+      "similarity_threshold": 0.8,
+      "function_comparison": true
+    },
+    
+    "performance": {
+      "parallel_processing": true,
+      "cache_analysis_results": true,
+      "max_file_size_mb": 5
+    }
+  }
+}
