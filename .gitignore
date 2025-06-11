@@ -3,10 +3,12 @@
 # Worktrees directory (created during parallel development)
 worktrees/
 
-# Temporary task files
+# Temporary task files (exclude generated, but keep command docs)
 parallel-tasks.md
-*-tasks.md
+/*-tasks.md
 task-*.md
+!.claude/commands/format-tasks.md
+!.claude/commands/*-tasks.md
 
 # Generated output files
 *-output.md
