@@ -34,11 +34,33 @@ Transform any complex development task into parallel work streams where multiple
 
 ### 1. Install
 
-Copy this directory to your project root:
+**Option A: Copy from existing installation**
 ```bash
 cp -r parallel-claude-workers /path/to/your/project/
 cd /path/to/your/project
+./parallel-claude-workers/init-project.sh
 ```
+
+**Option B: Clone directly into project**
+```bash
+cd /path/to/your/project
+git clone https://github.com/frankmylet/parallel-claude-workers.git
+./parallel-claude-workers/init-project.sh
+```
+
+**Option C: Download and extract**
+```bash
+cd /path/to/your/project
+# Download ZIP from GitHub, extract as 'parallel-claude-workers/'
+./parallel-claude-workers/init-project.sh
+```
+
+**What the init script does:**
+- ✅ Sets up slash commands (`/parallel-work`, `/resolve-conflicts`, etc.)
+- ✅ Configures CLAUDE.md with tool context reference
+- ✅ Updates .gitignore for generated files
+- ✅ Verifies installation and permissions
+- ✅ Provides quick start instructions
 
 ### 2. Create Tasks with Intelligent Splitting
 
